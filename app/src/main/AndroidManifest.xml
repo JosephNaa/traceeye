@@ -24,6 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="tech.goqba.traceeye.pulse.PulseActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation"
+            android:theme="@style/FullScreenTheme">
+        </activity>
     </application>
 
 </manifest>

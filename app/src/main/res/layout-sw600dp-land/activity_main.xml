@@ -99,6 +99,15 @@
             app:layout_constraintStart_toStartOf="@+id/viewCalBtn"
             app:layout_constraintTop_toTopOf="@+id/view3Btn" />
 
+        <Button
+            android:id="@+id/pulse"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:text="Pulse"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="@+id/settingBtn"
+            app:layout_constraintTop_toTopOf="@+id/view4Btn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

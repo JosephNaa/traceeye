@@ -1,6 +1,7 @@
 package tech.goqba.traceeye;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -26,6 +27,7 @@ import com.example.traceeye.R;
 import tech.goqba.traceeye.androidDraw.AbstractRenderView;
 import tech.goqba.traceeye.data.DataManager;
 import tech.goqba.traceeye.data.ReportView;
+import tech.goqba.traceeye.pulse.PulseActivity;
 
 
 public class MainActivity extends AppCompatActivity implements AbstractRenderView.ViewCallback,
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity implements AbstractRenderVie
         mReportView = new ReportView(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         doCheckPermission();
+        Button pulseBtn = (Button)findViewById(R.id.pulse);
+        pulseBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "click pulse");
+                Intent intent = new Intent(getApplicationContext(), PulseActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -91,12 +102,11 @@ public class MainActivity extends AppCompatActivity implements AbstractRenderVie
                 Log.d(TAG, "click adjust");
                 DeviceUtil.getInstance().resetAdjustPoint();
                 setContentView(mStageManager.getStage(StageManager.ADJUST));
-
                 break;
-
             case R.id.settingBtn:
                 mSettingView.Start();
                 break;
+
         }
     }
 
